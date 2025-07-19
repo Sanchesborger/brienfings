@@ -348,7 +348,8 @@ ${data.budgetNotes || 'Nenhuma observação adicional'}
 
     // Gerar markdown e enviar para WhatsApp
     const markdownText = generateMarkdown();
-    const whatsappUrl = `https://wa.me/${adminSettings.whatsappNumber}?text=${encodeURIComponent(markdownText)}`;
+    // Alterado: abrir WhatsApp sem número específico
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(markdownText)}`;
     window.open(whatsappUrl, '_blank');
 
     setCurrentScreen('success');
@@ -590,7 +591,7 @@ ${data.budgetNotes || 'Nenhuma observação adicional'}
                         <button
                           onClick={() => {
                             const markdownText = generateMarkdown(briefing.data);
-                            const whatsappUrl = `https://wa.me/${adminSettings.whatsappNumber}?text=${encodeURIComponent(markdownText)}`;
+                            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(markdownText)}`;
                             window.open(whatsappUrl, '_blank');
                           }}
                           className="mt-2 bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm"
@@ -690,7 +691,7 @@ ${data.budgetNotes || 'Nenhuma observação adicional'}
                         <button
                           onClick={() => {
                             const markdownText = generateMarkdown(briefing.data || briefing);
-                            const whatsappUrl = `https://wa.me/${adminSettings.whatsappNumber}?text=${encodeURIComponent(markdownText)}`;
+                            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(markdownText)}`;
                             window.open(whatsappUrl, '_blank');
                           }}
                           className="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors"
