@@ -445,11 +445,11 @@ ${data.budgetNotes || 'Nenhuma observação adicional'}
 
       case 'checkbox':
         return (
-          <div className={`grid gap-3 ${key === 'features' ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2'}`}>
+          <div className={`grid gap-3 ${key === 'features' ? 'grid-cols-1 md:grid-cols-2' : key === 'style' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-2'}`}>
             {options.map(option => (
               <label 
                 key={option} 
-                className={`flex items-center space-x-3 cursor-pointer p-3 border-2 rounded-lg transition-all duration-200 hover:shadow-md ${
+                className={`flex items-center space-x-3 cursor-pointer p-3 border-2 rounded-lg transition-all duration-200 hover:shadow-md break-words w-full ${
                   formData[key].includes(option) 
                     ? 'border-blue-500 bg-blue-50 shadow-sm' 
                     : 'border-gray-200 hover:border-gray-300'
@@ -461,9 +461,9 @@ ${data.budgetNotes || 'Nenhuma observação adicional'}
                   onChange={() => handleCheckboxChange(key, option)}
                   className="w-4 h-4 text-blue-500 rounded focus:ring-blue-500"
                 />
-                <span className={`text-sm font-medium ${
+                <span className={`text-sm font-medium break-words ${
                   formData[key].includes(option) ? 'text-blue-700' : 'text-gray-700'
-                }`}>
+                }`} style={{wordBreak: 'break-word'}}>
                   {option}
                 </span>
               </label>
